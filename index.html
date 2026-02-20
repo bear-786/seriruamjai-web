@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>พรรคเสรีร่วมใจ | ก้าวไปด้วยกัน</title>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --primary: #1a2a6c; --secondary: #f39c12; --accent: #b21f1f; --light: #f8f9fa; }
+        body { font-family: 'Sarabun', sans-serif; margin: 0; padding: 0; scroll-behavior: smooth; background: var(--light); color: #333; }
+        
+        /* Navigation */
+        header { background: #fff; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .logo img { height: 60px; transition: 0.3s; }
+        nav a { margin-left: 20px; text-decoration: none; color: var(--primary); font-weight: bold; transition: 0.3s; cursor: pointer; }
+        nav a:hover { color: var(--secondary); }
+
+        /* Hero Section */
+        .hero { 
+            background: linear-gradient(rgba(26, 42, 108, 0.75), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80');
+            height: 70vh; background-size: cover; background-position: center; color: white;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;
+        }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 15px; }
+        .hero p { font-size: clamp(1rem, 2vw, 1.5rem); max-width: 800px; opacity: 0.9; }
+
+        /* Committee Section */
+        .section-title { text-align: center; margin: 60px 0 40px; font-size: 2rem; position: relative; }
+        .section-title::after { content: ''; width: 50px; height: 4px; background: var(--secondary); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+        
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 10% 60px; }
+        .member-card { background: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; }
+        .member-card:hover { transform: translateY(-10px); }
+        .member-card img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 5px solid var(--light); outline: 3px solid var(--secondary); }
+
+        /* News Cards */
+        #news-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; padding: 0 10% 60px; }
+        .news-item { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: 0.3s; }
+        .news-item:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .news-item img { width: 100%; height: 220px; object-fit: cover; }
+        .news-content { padding: 20px; }
+        .news-date { color: var(--secondary); font-size: 0.85rem; font-weight: bold; }
+        
+        /* Admin Panel UI */
+        #admin-panel { display: none; background: white; padding: 40px; margin: 40px 10%; border-radius: 15px; border: 2px solid var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 15px; }
+        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-family: 'Sarabun'; }
+        .btn { background: var(--primary); color: white; padding: 12px 25px; border: none; cursor: pointer; border-radius: 8px; font-weight: bold; transition: 0.3s; }
+        .btn:hover { background: #0d1a4a; }
+        .btn-delete { background: var(--accent); font-size: 0.8rem; margin-top: 10px; }
+
+        footer { background: var(--primary); color: white; text-align: center; padding: 40px 20px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://cdn.discordapp.com/attachments/1308775245351489668/1472984085076115486/file_00000000859472099938dc6dc765dc2e.png?ex=69992c14&is=6997da94&hm=8ae869558968c689008c80bccfd633da62d7e6740e760bce0967ebb856ec1dca&" alt="พรรคเสรีร่วมใจ">
+    </div>
+    <nav>
+        <a href="#home">หน้าแรก</a>
+        <a href="#executives">ผู้บริหาร</a>
+        <a href="#news">ข่าวสาร</a>
+        <a onclick="adminLogin()"><i class="fa-solid fa-lock"></i> จัดการข่าว</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1 data-aos="fade-down">เสรีร่วมใจก้าวไปด้วยกัน</h1>
+    <p data-aos="fade-up" data-aos-delay="200">พลังเสรีประชาชน ร่วมใจ ก้าวไกลไปด้วยกัน</p>
+</section>
+
+<h2 class="section-title" id="executives" data-aos="fade-up">คณะกรรมการบริหารพรรค</h2>
+<div class="team-grid">
+    <div class="member-card" data-aos="zoom-in" data-aos-delay="100">
+        <img src="https://via.placeholder.com/150" alt="Leader">
+        <h3>นายเสรี ร่วมใจดี</h3>
+        <p style="color:var(--secondary); font-weight:bold;">หัวหน้าพรรค</p>
+    </div>
+    <div class="member-card" data-aos="zoom-in" data-aos-delay="200">
+        <img src="https://via.placeholder.com/150" alt="Secretary">
+        <h3>นางสาวใจดี รักสิทธิ</h3>
+        <p style="color:var(--secondary); font-weight:bold;">เลขาธิการพรรค</p>
+    </div>
+</div>
+
+<div style="background: #f0f2f5; padding-top: 10px;">
+    <h2 class="section-title" id="news" data-aos="fade-up">ข่าวสารประชาสัมพันธ์</h2>
+    <div id="news-container">
+        </div>
+</div>
+
+<section id="admin-panel" data-aos="fade-in">
+    <h3><i class="fa-solid fa-pen-to-square"></i> เพิ่มข่าวสารใหม่</h3>
+    <div class="form-group">
+        <input type="text" id="news-title" placeholder="หัวข้อข่าว">
+    </div>
+    <div class="form-group">
+        <textarea id="news-desc" rows="4" placeholder="เนื้อหาข่าวแบบย่อ..."></textarea>
+    </div>
+    <div class="form-group">
+        <input type="text" id="news-img-url" placeholder="วางลิงก์รูปภาพ (URL) เช่น https://image.com/pic.jpg">
+    </div>
+    <button class="btn" onclick="postNews()">เผยแพร่ข่าวสาร</button>
+    <button class="btn" onclick="logout()" style="background:#666; margin-left:10px;">ออกจากระบบ</button>
+</section>
+
+<footer>
+    <h3>พรรคเสรีร่วมใจ</h3>
+    <p>เสรีร่วมใจก้าวไปด้วยกัน และ พลังเสรีประชาชน ร่วมใจ ก้าวไกลไปด้วยกัน</p>
+    <p style="opacity: 0.5; font-size: 0.8rem; margin-top: 20px;">&copy; 2026 Seriruamjai Party. All Rights Reserved.</p>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    AOS.init({ duration: 1000, once: true });
+
+    // --- 1. การตั้งค่า Firebase (กรุณาใช้ Config จากโปรเจกต์ของคุณเอง) ---
+    const firebaseConfig = {
+        apiKey: "AIzaSyA3B7sWp8Zt8ijZT9wqo3gTFiaEC26-KcU",
+        authDomain: "seriruamjai-party.firebaseapp.com",
+        projectId: "seriruamjai-party",
+        storageBucket: "seriruamjai-party.firebasestorage.app",
+        messagingSenderId: "57639692456",
+        appId: "1:57639692456:web:83138748540b05264e7a9d"
+        measurementId: "G-EQLV07W31D"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+
+    // --- 2. ดึงข้อมูลข่าวสารมาแสดงหน้าเว็บ ---
+    db.collection("news").orderBy("timestamp", "desc").onSnapshot((snapshot) => {
+        const container = document.getElementById('news-container');
+        container.innerHTML = "";
+        
+        if(snapshot.empty) {
+            container.innerHTML = "<p style='text-align:center; grid-column: 1/-1;'>ยังไม่มีข่าวสารในขณะนี้</p>";
+        }
+
+        snapshot.forEach((doc) => {
+            const news = doc.data();
+            const isAdmin = auth.currentUser !== null;
+            
+            container.innerHTML += `
+                <div class="news-item" data-aos="fade-up">
+                    <img src="${news.image || 'https://via.placeholder.com/400x250'}" alt="news">
+                    <div class="news-content">
+                        <span class="news-date">${news.date}</span>
+                        <h3 style="margin:10px 0; color:var(--primary);">${news.title}</h3>
+                        <p style="font-size:0.9rem; color:#666;">${news.desc}</p>
+                        ${isAdmin ? `<button class="btn btn-delete" onclick="deleteNews('${doc.id}')"><i class="fa-solid fa-trash"></i> ลบข่าวนี้</button>` : ''}
+                    </div>
+                </div>
+            `;
+        });
+    });
+
+    // --- 3. ระบบจัดการข่าว (Admin) ---
+    async function postNews() {
+        const title = document.getElementById('news-title').value;
+        const desc = document.getElementById('news-desc').value;
+        const imgUrl = document.getElementById('news-img-url').value;
+
+        if(!title || !imgUrl) return alert("กรุณากรอกหัวข้อและวางลิงก์รูปภาพ");
+
+        try {
+            await db.collection("news").add({
+                title: title,
+                desc: desc,
+                image: imgUrl,
+                date: new Date().toLocaleDateString('th-TH', {day:'numeric', month:'long', year:'numeric'}),
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            });
+            alert("ประกาศข่าวเรียบร้อย!");
+            document.getElementById('news-title').value = "";
+            document.getElementById('news-desc').value = "";
+            document.getElementById('news-img-url').value = "";
+        } catch (e) { alert("เกิดข้อผิดพลาด: " + e.message); }
+    }
+
+    function deleteNews(id) {
+        if(confirm("คุณต้องการลบข่าวนี้ใช่หรือไม่?")) {
+            db.collection("news").doc(id).delete();
+        }
+    }
+
+    // --- 4. ระบบ Login ---
+    function adminLogin() {
+        const email = prompt("กรุณากรอก Email แอดมิน:");
+        const password = prompt("กรุณากรอกรหัสผ่าน:");
+        if(email && password) {
+            auth.signInWithEmailAndPassword(email, password)
+                .catch(err => alert("เข้าสู่ระบบไม่สำเร็จ: " + err.message));
+        }
+    }
+
+    function logout() {
+        auth.signOut().then(() => location.reload());
+    }
+
+    auth.onAuthStateChanged(user => {
+        const panel = document.getElementById('admin-panel');
+        if (user) {
+            panel.style.display = 'block';
+            console.log("Logged in as:", user.email);
+        } else {
+            panel.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
