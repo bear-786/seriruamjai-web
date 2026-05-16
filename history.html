@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ประวัติพรรค | พรรคเสรีร่วมใจ</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --ptp-red: oklch(55% 0.22 25);
+            --surface: oklch(99% 0.01 25);
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Kanit', sans-serif;
+            background-color: var(--surface);
+            color: oklch(15% 0.01 25);
+        }
+        #side-menu { transform: translateX(-100%); transition: transform 0.4s var(--ease-out-expo); }
+        #side-menu.active { transform: translateX(0); }
+        .dropdown-content { max-height: 0; overflow: hidden; transition: max-height 0.3s var(--ease-out-expo); background-color: rgba(255, 255, 255, 0.03); }
+        .dropdown-item.active .dropdown-content { max-height: 500px; }
+        .chevron { transition: transform 0.3s var(--ease-out-expo); }
+        .dropdown-item.active .chevron { transform: rotate(180deg); }
+
+        /* Timeline Styles */
+        .timeline-line { width: 2px; background: linear-gradient(to bottom, var(--ptp-red), transparent); }
+        .timeline-dot { width: 12px; height: 12px; background: var(--ptp-red); border: 4px solid white; box-shadow: 0 0 0 4px rgba(212, 32, 32, 0.1); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-100 h-16 flex items-center px-4">
+        <button id="menu-btn" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <div class="ml-4 text-xl font-bold tracking-tighter text-[oklch(55%_0.22_25)]">PHEU THAI</div>
+    </nav>
+
+    <div id="overlay" class="fixed inset-0 bg-black/50 z-[60] hidden opacity-0 transition-opacity duration-300"></div>
+
+    <aside id="side-menu" class="fixed top-0 left-0 w-[80%] max-w-[320px] h-full bg-[#222] text-white z-[70] shadow-2xl">
+        <div class="p-6 border-b border-white/10 flex justify-between items-center bg-[#1a1a1a]">
+            <span class="font-bold tracking-wider">เมนูหลัก</span>
+            <button id="close-btn" class="text-white/50 hover:text-white">✕</button>
+        </div>
+        <nav class="flex flex-col">
+            <a href="index.html" class="p-5 border-b border-white/5 bg-white/10 text-white font-bold">หน้าแรก</a>
+            <div class="dropdown-item">
+                <button class="dropdown-btn w-full p-5 flex justify-between items-center border-b border-white/5 hover:bg-white/5">
+                    <span>เกี่ยวกับพรรค</span>
+                    <svg class="chevron h-4 w-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="history.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">ประวัติพรรค</a>
+                    <a href="executive.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">คณะกรรมการบริหาร</a>
+                    <a href="PartyRegulations.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">ระเบียบข้อบังคับ</a>
+                </div>
+            </div>
+            <div class="dropdown-item">
+                <button class="dropdown-btn w-full p-5 flex justify-between items-center border-b border-white/5 hover:bg-white/5">
+                    <span>ผลงานและนโยบาย</span>
+                    <svg class="chevron h-4 w-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="policy.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">รายละเอียดนโยบาย</a>
+                    <a href="Pastmilestones.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">ความสำเร็จที่ผ่านมา</a>
+                </div>
+            </div>
+            <a href="news.html" class="p-5 border-b border-white/5 hover:bg-white/5">ข่าวสารล่าสุด</a>
+        </nav>
+    </aside>
+
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <section class="text-center mb-20">
+            <h2 class="text-[oklch(55%_0.22_25)] font-bold tracking-[0.4em] uppercase text-xs mb-4">Our Journey</h2>
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">ประวัติและความเป็นมา</h1>
+            <p class="text-gray-500 text-lg leading-relaxed">
+.........
+            </p>
+        </section>
+
+        <div class="relative">
+            <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full timeline-line"></div>
+
+            <div class="relative flex flex-col md:flex-row items-center justify-between mb-24 group">
+                <div class="hidden md:block w-5/12"></div>
+                <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 timeline-dot z-10"></div>
+                <div class="w-full md:w-5/12 pl-12 md:pl-0 text-left md:text-right">
+                    <span class="text-2xl font-black text-slate-200 group-hover:text-[oklch(55%_0.22_25)] transition-colors">2541 - 2548</span>
+                    <h3 class="text-xl font-bold mt-2 mb-3">...</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">...</p>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row-reverse items-center justify-between mb-24 group">
+                <div class="hidden md:block w-5/12"></div>
+                <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 timeline-dot z-10"></div>
+                <div class="w-full md:w-5/12 pl-12 md:pl-0 text-left">
+                    <span class="text-2xl font-black text-slate-200 group-hover:text-[oklch(55%_0.22_25)] transition-colors">2550 - 2551</span>
+                    <h3 class="text-xl font-bold mt-2 mb-3">---</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">...</p>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row items-center justify-between mb-24 group">
+                <div class="hidden md:block w-5/12"></div>
+                <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 timeline-dot z-10"></div>
+                <div class="w-full md:w-5/12 pl-12 md:pl-0 text-left md:text-right">
+                    <span class="text-2xl font-black text-slate-200 group-hover:text-[oklch(55%_0.22_25)] transition-colors">2551 - ปัจจุบัน</span>
+                    <h3 class="text-xl font-bold mt-2 mb-3">เสรีร่วมใจ</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">...</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="mt-32 p-10 bg-slate-900 rounded-[3rem] text-white text-center">
+            <h2 class="text-2xl font-bold mb-6">อุดมการณ์ของเรา</h2>
+            <p class="text-slate-400 leading-relaxed max-w-2xl mx-auto italic">
+                "..."
+            </p>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-20 text-center text-xs text-gray-500 border-t border-gray-800">
+        &copy; 2026 พรรคเสรีร่วมใจ
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const sideMenu = document.getElementById('side-menu');
+        const overlay = document.getElementById('overlay');
+        const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+
+        function toggleMenu() {
+            const isActive = sideMenu.classList.toggle('active');
+            overlay.classList.toggle('hidden');
+            setTimeout(() => overlay.classList.toggle('opacity-0', !isActive), 10);
+        }
+
+        menuBtn.onclick = toggleMenu;
+        closeBtn.onclick = toggleMenu;
+        overlay.onclick = toggleMenu;
+
+        dropdownBtns.forEach(btn => {
+            btn.onclick = () => btn.parentElement.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

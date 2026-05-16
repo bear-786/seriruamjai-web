@@ -2,404 +2,175 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>พรรคเสรีร่วมใจ | ก้าวไปด้วยกัน</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>พรรคเสรีร่วมใจ | เสรีร่วมใจก้าวไปด้วยกัน พลังเสรีประชาชน ร่วมใจ ก้าวไกลไปด้วยกัน</title>
     
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-    .policy-card {
-    background: #f8f9fa;
-    padding: 40px 30px;
-    border-radius: 20px;
-    text-align: center;
-    border-top: 5px solid var(--primary);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-}
+        :root {
+            --ptp-red: oklch(55% 0.22 25);
+            --surface: oklch(99% 0.01 25);
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Kanit', sans-serif;
+            background-color: var(--surface);
+            color: oklch(15% 0.01 25);
+        }
+        #side-menu { transform: translateX(-100%); transition: transform 0.4s var(--ease-out-expo); }
+        #side-menu.active { transform: translateX(0); }
+        .dropdown-content { max-height: 0; overflow: hidden; transition: max-height 0.3s var(--ease-out-expo); background-color: rgba(255, 255, 255, 0.03); }
+        .dropdown-item.active .dropdown-content { max-height: 500px; }
+        .chevron { transition: transform 0.3s var(--ease-out-expo); }
+        .dropdown-item.active .chevron { transform: rotate(180deg); }
 
-.policy-card:hover {
-    transform: translateY(-10px);
-    background: white;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.policy-card h3 {
-    color: var(--primary);
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.policy-card p {
-    color: #555;
-    line-height: 1.7;
-}
-
-        :root { --primary: #1a2a6c; --secondary: #f39c12; --accent: #b21f1f; --light: #f8f9fa ; }
-        body { font-family: 'Sarabun', sans-serif; margin: 0; padding: 0; scroll-behavior: smooth; background: var(--light); color: #333; }
-        
-        /* Navigation */
-        header { background: #fff; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .logo img { height: 60px; transition: 0.3s; }
-        nav a { margin-left: 20px; text-decoration: none; color: var(--primary); font-weight: bold; transition: 0.3s; cursor: pointer; }
-        nav a:hover { color: var(--secondary); }
-
-        /* Hero Section */
-       .hero { 
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(26, 42, 108, 0.6)), 
-                url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80');
-    height: 80vh; 
-    background-size: cover; 
-    background-position: center; 
-    color: white;
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    text-align: center;
-    padding: 20px;
-}
-.btn-download {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--accent), #8e1818); /* สีแดงเข้มดูเป็นทางการ */
-    color: white;
-    padding: 18px 35px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    box-shadow: 0 4px 15px rgba(178, 31, 31, 0.3);
-    transition: all 0.3s ease;
-}
-
-.btn-download:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(178, 31, 31, 0.4);
-    color: white;
-    filter: brightness(1.1);
-}
-
-.hero { 
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(26, 42, 108, 0.6)), 
-                url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80');
-    height: 80vh; 
-    background-size: cover; 
-    background-position: center; 
-    color: white;
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    text-align: center;
-    padding: 20px;
-}
-
-.hero h1 { 
-    font-size: clamp(2.5rem, 8vw, 4.5rem); 
-    margin-bottom: 20px; 
-    font-weight: 700;
-    text-shadow: 3px 3px 15px rgba(0,0,0,0.9); /* เงาเข้มให้อ่านง่ายขึ้น */
-}
-
-.hero p { 
-    font-size: clamp(1.2rem, 4vw, 2rem); 
-    max-width: 900px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.9);
-}
-
-
-
-        /* Committee Section */
-        .section-title { text-align: center; margin: 60px 0 40px; font-size: 2rem; position: relative; }
-        .section-title::after { content: ''; width: 50px; height: 4px; background: var(--secondary); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
-        
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 10% 60px; }
-        .member-card { background: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; }
-        .member-card:hover { transform: translateY(-10px); }
-        .member-card img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 5px solid var(--light); outline: 3px solid var(--secondary); }
-
-        /* News Cards */
-        #news-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; padding: 0 10% 60px; }
-        .news-item { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: 0.3s; }
-        .news-item:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-        .news-item img { width: 100%; height: 220px; object-fit: cover; }
-        .news-content { padding: 20px; }
-        .news-date { color: var(--secondary); font-size: 0.85rem; font-weight: bold; }
-        
-        /* Admin Panel UI */
-        #admin-panel { display: none; background: white; padding: 40px; margin: 40px 10%; border-radius: 15px; border: 2px solid var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .form-group { margin-bottom: 15px; }
-        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-family: 'Sarabun'; }
-        .btn { background: var(--primary); color: white; padding: 12px 25px; border: none; cursor: pointer; border-radius: 8px; font-weight: bold; transition: 0.3s; }
-        .btn:hover { background: #0d1a4a; }
-        .btn-delete { background: var(--accent); font-size: 0.8rem; margin-top: 10px; }
-
-        footer { background: var(--primary); color: white; text-align: center; padding: 40px 20px; }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(212, 32, 32, 0.05), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(212, 32, 32, 0.03), transparent 40%);
+        }
     </style>
 </head>
-<body>
+<body class="antialiased">
 
-<header>
-    <div class="logo">
-        <img src="https://i.ibb.co/N63DPdG8/file-00000000859472099938dc6dc765dc2e-1.png" alt="พรรคเสรีร่วมใจ">
-    </div>
-    <nav>
-        <a href="#home">หน้าแรก</a>
-        <a href="#executives">ผู้บริหาร</a>
-        <a href="#news">ข่าวสาร</a>
-        <a onclick="adminLogin()"><i class="fa-solid fa-lock"></i> จัดการข่าว</a>
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 h-16 flex items-center px-4">
+        <button id="menu-btn" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <div class="ml-4 text-xl font-bold tracking-tighter text-[oklch(55%_0.22_25)]">SERIRUAMJAI PARTY</div>
     </nav>
-</header>
-<section style="background-color: #000; padding: 50px 20px; text-align: center; color: #fff;">
-    <div data-aos="fade-up">
-        <img src="https://i.ibb.co/LX2KnZtT/images-53.png" alt="น้อมรำลึก" style="max-width: 100%; height: auto; max-height: 600px; margin-bottom: 20px;">
-        
-        <div style="font-family: 'Sarabun', sans-serif; line-height: 1.8;">
-            <h2 style="font-weight: 400; font-size: 2rem; margin-bottom: 20px;">ธ สถิตในดวงใจตราบนิรันดร์</h2>
-            <p style="font-size: 1.2rem; opacity: 0.9;">ขอน้อมถวายอาลัย สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ<br>
-            พระบรมราชชนนีพันปีหลวง เสด็จสู่สวรรคาลัย</p>
-            <p style="font-size: 1.5rem; font-weight: bold; margin: 30px 0;">น้อมสำนึกในพระมหากรุณาธิคุณหาที่สุดมิได้</p>
-            
-            <div style="border-top: 1px solid #333; width: 200px; margin: 20px auto;"></div>
-            
-            <p style="font-size: 0.9rem; opacity: 0.8;">ด้วยเกล้าด้วยกระหม่อม ขอเดชะ<br>
-            ข้าพระพุทธเจ้า คณะกรรมการบริหารพรรค และสมาชิกพรรคเสรีร่วมใจ</p>
+
+    <div id="overlay" class="fixed inset-0 bg-black/50 z-[60] hidden opacity-0 transition-opacity duration-300"></div>
+
+    <aside id="side-menu" class="fixed top-0 left-0 w-[80%] max-w-[320px] h-full bg-[#222] text-white z-[70] shadow-2xl">
+        <div class="p-6 border-b border-white/10 flex justify-between items-center bg-[#1a1a1a]">
+            <span class="font-bold tracking-wider">เมนูหลัก</span>
+            <button id="close-btn" class="text-white/50 hover:text-white">✕</button>
         </div>
-    </div>
-</section>
-
-<section class="hero" id="home">
-    <h1 data-aos="fade-down">เสรีร่วมใจก้าวไปด้วยกัน</h1>
-    <p data-aos="fade-up" data-aos-delay="200">พลังเสรีประชาชน ร่วมใจ ก้าวไกลไปด้วยกัน</p>
-</section>
-
-<h2 class="section-title" id="executives" data-aos="fade-up">คณะกรรมการบริหารพรรค</h2>
-<div class="team-grid">
-    <div class="member-card" data-aos="zoom-in" data-aos-delay="100">
-        <img src="https://tr.rbxcdn.com/30DAY-Avatar-1CC9F96509C847002210DF04C287F6DB-Png/720/720/Avatar/Webp/noFilter" alt="Leader">
-        <h3>นายศิริศักดิ์ บรรยายรัตน</h3>
-        <p style="color:var(--secondary); font-weight:bold;">หัวหน้าพรรค</p>
-    </div>
-        <div class="member-card" data-aos="zoom-in" data-aos-delay="200">
-        <img src="https://tr.rbxcdn.com/30DAY-Avatar-F9CFE6F0DC27B51F3FBAC082C3A390E4-Png/720/720/Avatar/Webp/noFilter" alt="Secretary">
-        <h3>สมเด็จพระนางเจ้าศิรินภา บรรยายรัตน พระบรมราชินี</h3>
-        <p style="color:var(--secondary); font-weight:bold;">รองหัวหน้าพรรค</p>
-    </div>
-        <div class="member-card" data-aos="zoom-in" data-aos-delay="300">
-        <img src="https://tr.rbxcdn.com/30DAY-Avatar-9E186E7BE11A8C3CD75F6CBCFA8BA41A-Png/720/720/Avatar/Webp/noFilter" alt="Secretary">
-        <h3>พระบาทสมเด็จพระดารุเดชนาวินทมหาราช พระอัครกษัตริยาธิราชเกล้าเจ้าอยู่หัว</h3>
-        <p style="color:var(--secondary); font-weight:bold;">รองหัวหน้าพรรค</p>
-    </div>
-    <div class="member-card" data-aos="zoom-in" data-aos-delay="400">
-        <img src="https://tr.rbxcdn.com/30DAY-Avatar-45C61BB10A9AB66F31524849ACB0B76F-Png/720/720/Avatar/Webp/noFilter" alt="Secretary">
-        <h3>นายณัฐพงศ์ วิชัยชาญ</h3>
-        <p style="color:var(--secondary); font-weight:bold;">เลขาธิการพรรค</p>
-    </div>
-</div>
-<section id="policies" style="padding: 80px 10%; background-color: #ffffff;">
-    <div class="section-title" data-aos="fade-up">
-        <h2>นโยบายหลักพรรคเสรีร่วมใจ</h2>
-        <p style="color: #666;">มุ่งมั่นสร้างสังคมแห่งเสรีภาพและความเท่าเทียม เพื่ออนาคตที่ดีกว่าของประชาชน</p>
-    </div>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
-        
-        <div class="policy-card" data-aos="fade-up" data-aos-delay="100">
-            <div style="font-size: 3rem; color: var(--secondary); margin-bottom: 20px;">
-                <i class="fa-solid fa-scale-balanced"></i>
-            </div>
-           <h3>กลาโหมยุคใหม่</h3>
-            <p>เน้นกองทัพดิจิทัล ใช้โดรนและ AI ลดการสูญเสียกำลังพล เปลี่ยนระบบเกณฑ์ทหารเป็นแบบสมัครใจ 100%</p>
-        </div>
-
-        <div class="policy-card" data-aos="zoom-in" data-aos-delay="150">
-            <i class="fa-solid fa-chart-line"></i>
-            <h3>เศรษฐกิจความมั่นคง</h3>
-            <p>ผลักดันอุตสาหกรรมป้องกันประเทศเพื่อการส่งออก และสร้างรายได้จากพื้นที่ทหารสู่ชุมชนอย่างยั่งยืน</p>
-        </div>
-
-        <div class="policy-card" data-aos="zoom-in" data-aos-delay="200">
-            <i class="fa-solid fa-earth-asia"></i>
-            <h3>การทูตเชิงรุก</h3>
-            <p>สร้างความร่วมมือพหุภาคี กระชับมิตรมหาอำนาจ และส่งเสริมบทบาทไทยในฐานะผู้นำสันติภาพโลก</p>
-        </div>
-
-        <div class="policy-card" data-aos="zoom-in" data-aos-delay="250">
-            <i class="fa-solid fa-heart-pulse"></i>
-            <h3>แพทย์ทหารเพื่อประชาชน</h3>
-            <p>เปิดโรงพยาบาลค่ายรักษาประชาชนฟรี เชื่อมต่อเฮลิคอปเตอร์กู้ภัยรับส่งผู้ป่วยวิกฤตในพื้นที่ห่างไกล</p>
-        </div>
-
-        <div class="policy-card" data-aos="zoom-in" data-aos-delay="300">
-            <i class="fa-solid fa-route"></i>
-            <h3>คมนาคมยุทธศาสตร์</h3>
-            <p>ขยายเส้นทางความมั่นคงเชื่อมชายแดน และใช้ระบบรางลดต้นทุนโลจิสติกส์การค้าข้ามพรมแดน</p>
-        </div>
-
-        <div class="policy-card" data-aos="zoom-in" data-aos-delay="350">
-            <i class="fa-solid fa-house-lock"></i>
-            <h3>ปกครองดิจิทัล</h3>
-            <p>ปฏิรูประบบราชการให้อยู่บนมือถือ และเสริมสร้างอาสาสมัครพิทักษ์ถิ่น (อส.) เพื่อความปลอดภัยชุมชน</p>
-        </div>
-
-        <div class="policy-card" data-aos="zoom-in" data-aos-delay="400">
-            <i class="fa-solid fa-scale-balanced"></i>
-            <h3>ยุติธรรมเท่าเทียม</h3>
-            <p>ใช้นิติวิทยาศาสตร์นำการสอบสวน ปราบยาเสพติดเด็ดขาด และเปลี่ยนเรือนจำให้เป็นศูนย์ฝึกวิชาชีพ</p>
-        </div>
-
-        <div class="policy-card" data-aos="zoom-in" data-aos-delay="450">
-            <i class="fa-solid fa-coins"></i>
-            <h3>งบประมาณโปร่งใส</h3>
-            <p>ใช้ระบบงบประมาณฐานศูนย์ (Zero-Based) และ Blockchain ตรวจสอบการใช้เงินแผ่นดินทุกบาท</p>
-        </div>
-
-    </div>
-</section>
-<div style="text-align: center; margin-top: 50px;" data-aos="zoom-in">
-    <p style="margin-bottom: 20px; color: #666;">อ่านรายละเอียดแผนงานและยุทธศาสตร์ฉบับเต็ม</p>
-    
-    <a href="นโยบายพรรคเสรีร่วมใจ.pdf" download class="btn-download">
-        <i class="fa-solid fa-file-pdf" style="margin-right: 10px;"></i> 
-        ดาวน์โหลดนโยบายฉบับเต็ม (PDF)
-    </a>
-    
-    <div style="margin-top: 15px;">
-        <small style="color: #999;">อัปเดตล่าสุด: 28 กุมภาพันธ์ 2569</small>
-    </div>
-</div>
-
-<div style="background: #f0f2f5; padding-top: 10px;">
-    <h2 class="section-title" id="news" data-aos="fade-up">ข่าวสารประชาสัมพันธ์</h2>
-    <div id="news-container">
-        </div>
-</div>
-
-<section id="admin-panel" data-aos="fade-in">
-    <h3><i class="fa-solid fa-pen-to-square"></i> เพิ่มข่าวสารใหม่</h3>
-    <div class="form-group">
-        <input type="text" id="news-title" placeholder="หัวข้อข่าว">
-    </div>
-    <div class="form-group">
-        <textarea id="news-desc" rows="4" placeholder="เนื้อหาข่าวแบบย่อ..."></textarea>
-    </div>
-    <div class="form-group">
-        <input type="text" id="news-img-url" placeholder="วางลิงก์รูปภาพ (URL) เช่น https://image.com/pic.jpg">
-    </div>
-    <button class="btn" onclick="postNews()">เผยแพร่ข่าวสาร</button>
-    <button class="btn" onclick="logout()" style="background:#666; margin-left:10px;">ออกจากระบบ</button>
-</section>
-
-<footer>
-    <h3>พรรคเสรีร่วมใจ</h3>
-    <p>เสรีร่วมใจก้าวไปด้วยกัน และ พลังเสรีประชาชน ร่วมใจ ก้าวไกลไปด้วยกัน</p>
-    <p style="opacity: 0.5; font-size: 0.8rem; margin-top: 20px;">&copy; 2026 Seriruamjai Party. All Rights Reserved.</p>
-</footer>
-
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script>
-    AOS.init({ duration: 1000, once: true });
-
-    // --- 1. การตั้งค่า Firebase (กรุณาใช้ Config จากโปรเจกต์ของคุณเอง) ---
-    const firebaseConfig = {
-        apiKey: "AIzaSyA3B7sWp8Zt8ijZT9wqo3gTFiaEC26-KcU",
-        authDomain: "seriruamjai-party.firebaseapp.com",
-        projectId: "seriruamjai-party",
-        storageBucket: "seriruamjai-party.firebasestorage.app",
-        messagingSenderId: "57639692456",
-        appId: "1:57639692456:web:83138748540b05264e7a9d",
-        measurementId: "G-EQLV07W31D",
-    };
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    const auth = firebase.auth();
-
-    // --- 2. ดึงข้อมูลข่าวสารมาแสดงหน้าเว็บ ---
-    db.collection("news").orderBy("timestamp", "desc").onSnapshot((snapshot) => {
-        const container = document.getElementById('news-container');
-        container.innerHTML = "";
-        
-        if(snapshot.empty) {
-            container.innerHTML = "<p style='text-align:center; grid-column: 1/-1;'>ยังไม่มีข่าวสารในขณะนี้</p>";
-        }
-
-        snapshot.forEach((doc) => {
-            const news = doc.data();
-            const isAdmin = auth.currentUser !== null;
-            
-            container.innerHTML += `
-                <div class="news-item" data-aos="fade-up">
-                    <img src="${news.image || 'https://via.placeholder.com/400x250'}" alt="news">
-                    <div class="news-content">
-                        <span class="news-date">${news.date}</span>
-                        <h3 style="margin:10px 0; color:var(--primary);">${news.title}</h3>
-                        <p style="font-size:0.9rem; color:#666;">${news.desc}</p>
-                        ${isAdmin ? `<button class="btn btn-delete" onclick="deleteNews('${doc.id}')"><i class="fa-solid fa-trash"></i> ลบข่าวนี้</button>` : ''}
-                    </div>
+        <nav class="flex flex-col">
+            <a href="index.html" class="p-5 border-b border-white/5 bg-white/10 text-white font-bold">หน้าแรก</a>
+            <div class="dropdown-item">
+                <button class="dropdown-btn w-full p-5 flex justify-between items-center border-b border-white/5 hover:bg-white/5">
+                    <span>เกี่ยวกับพรรค</span>
+                    <svg class="chevron h-4 w-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="history.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">ประวัติพรรค</a>
+                    <a href="executive.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">คณะกรรมการบริหาร</a>
+                    <a href="PartyRegulations.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">ระเบียบข้อบังคับ</a>
                 </div>
-            `;
+            </div>
+            <div class="dropdown-item">
+                <button class="dropdown-btn w-full p-5 flex justify-between items-center border-b border-white/5 hover:bg-white/5">
+                    <span>ผลงานและนโยบาย</span>
+                    <svg class="chevron h-4 w-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="policy.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">รายละเอียดนโยบาย</a>
+                    <a href="Pastmilestones.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">ความสำเร็จที่ผ่านมา</a>
+                </div>
+            </div>
+            <a href="news.html" class="p-5 border-b border-white/5 hover:bg-white/5">ข่าวสารล่าสุด</a>
+        </nav>
+    </aside>
+
+    <header class="hero-gradient pt-24 pb-20 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
+            <div class="inline-block px-4 py-2 mb-8 bg-red-50 text-[oklch(55%_0.22_25)] text-xs font-black tracking-[0.3em] rounded-full uppercase">SERIRUAMJAI PARTY 2026</div>
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-tight mb-8">
+                เสรีร่วมใจก้าวไปด้วยกัน <br>
+                <span class="text-[oklch(55%_0.22_25)]">พลังเสรีประชาชน ร่วมใจ ก้าวไกลไปด้วยกัน</span>
+            </h1>
+            <p class="text-gray-500 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
+                ... <br class="hidden md:block"> ...
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="policy.html" class="px-10 py-4 bg-[oklch(55%_0.22_25)] text-white font-bold rounded-full hover:scale-105 transition-transform shadow-lg shadow-red-200">ดูนโยบายของเรา</a>
+                <a href="news.html" class="px-10 py-4 bg-white border border-gray-200 font-bold rounded-full hover:bg-gray-50 transition-colors">ข่าวล่าสุด</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="max-w-7xl mx-auto px-6 -mt-10 mb-24">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-gray-100 border border-gray-50 text-center">
+                <div class="text-3xl font-bold text-slate-900 mb-1">20+</div>
+                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest">ปีแห่งประสบการณ์</p>
+            </div>
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-gray-100 border border-gray-50 text-center">
+                <div class="text-3xl font-bold text-[oklch(55%_0.22_25)] mb-1">10k</div>
+                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest">บาท ดิจิทัลวอลเล็ต</p>
+            </div>
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-gray-100 border border-gray-50 text-center">
+                <div class="text-3xl font-bold text-slate-900 mb-1">30</div>
+                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest">บาท รักษาทุกที่</p>
+            </div>
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-gray-100 border border-gray-50 text-center">
+                <div class="text-3xl font-bold text-[oklch(55%_0.22_25)] mb-1">600</div>
+                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest">ค่าแรงขั้นต่ำ</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-6 pb-24">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="text-3xl font-bold mb-2">ข่าวประชาสัมพันธ์</h2>
+                <p class="text-gray-400 text-sm">อัปเดตความเคลื่อนไหวล่าสุดจากพรรค</p>
+            </div>
+            <a href="news.html" class="text-sm font-bold text-[oklch(55%_0.22_25)] hover:underline">ดูทั้งหมด →</a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <article class="group cursor-pointer">
+                <div class="aspect-video bg-gray-100 rounded-[2.5rem] overflow-hidden mb-6">
+                    <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="News">
+                </div>
+                <span class="text-xs font-bold text-gray-400">17 เมษายน 2569</span>
+                <h3 class="text-2xl font-bold mt-2 group-hover:text-[oklch(55%_0.22_25)] transition-colors leading-tight">พรรคเพื่อไทยลงพื้นที่รับฟังปัญหาปากท้องพี่น้องประชาชนโซนภาคตะวันออก</h3>
+            </article>
+            
+            <article class="group cursor-pointer">
+                <div class="aspect-video bg-gray-100 rounded-[2.5rem] overflow-hidden mb-6">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="News">
+                </div>
+                <span class="text-xs font-bold text-gray-400">15 เมษายน 2569</span>
+                <h3 class="text-2xl font-bold mt-2 group-hover:text-[oklch(55%_0.22_25)] transition-colors leading-tight">เดินหน้ายกระดับนโยบาย 30 บาทรักษาทุกที่ ครอบคลุมการส่งยาถึงบ้าน</h3>
+            </article>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-white py-16 px-6 text-center">
+        <div class="text-2xl font-bold mb-4 tracking-tighter">PHEU THAI PARTY</div>
+        <p class="text-slate-500 text-xs mb-8">พรรคเสรีร่วมใจ | เสรีร่วมใจก้าวไปด้วยกัน พลังเสรีประชาชน ร่วมใจ ก้าวไกลไปด้วยกัน</p>
+        <div class="text-[10px] text-slate-600 border-t border-slate-800 pt-8">
+            &copy; 2026 พรรคเสรีร่วมใจ
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const sideMenu = document.getElementById('side-menu');
+        const overlay = document.getElementById('overlay');
+        const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+
+        function toggleMenu() {
+            const isActive = sideMenu.classList.toggle('active');
+            overlay.classList.toggle('hidden');
+            setTimeout(() => overlay.classList.toggle('opacity-0', !isActive), 10);
+        }
+
+        menuBtn.onclick = toggleMenu;
+        closeBtn.onclick = toggleMenu;
+        overlay.onclick = toggleMenu;
+
+        dropdownBtns.forEach(btn => {
+            btn.onclick = () => btn.parentElement.classList.toggle('active');
         });
-    });
-
-    // --- 3. ระบบจัดการข่าว (Admin) ---
-    async function postNews() {
-        const title = document.getElementById('news-title').value;
-        const desc = document.getElementById('news-desc').value;
-        const imgUrl = document.getElementById('news-img-url').value;
-
-        if(!title || !imgUrl) return alert("กรุณากรอกหัวข้อและวางลิงก์รูปภาพ");
-
-        try {
-            await db.collection("news").add({
-                title: title,
-                desc: desc,
-                image: imgUrl,
-                date: new Date().toLocaleDateString('th-TH', {day:'numeric', month:'long', year:'numeric'}),
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            });
-            alert("ประกาศข่าวเรียบร้อย!");
-            document.getElementById('news-title').value = "";
-            document.getElementById('news-desc').value = "";
-            document.getElementById('news-img-url').value = "";
-        } catch (e) { alert("เกิดข้อผิดพลาด: " + e.message); }
-    }
-
-    function deleteNews(id) {
-        if(confirm("คุณต้องการลบข่าวนี้ใช่หรือไม่?")) {
-            db.collection("news").doc(id).delete();
-        }
-    }
-
-    // --- 4. ระบบ Login ---
-    function adminLogin() {
-        const email = prompt("กรุณากรอก Email แอดมิน:");
-        const password = prompt("กรุณากรอกรหัสผ่าน:");
-        if(email && password) {
-            auth.signInWithEmailAndPassword(email, password)
-                .catch(err => alert("เข้าสู่ระบบไม่สำเร็จ: " + err.message));
-        }
-    }
-
-    function logout() {
-        auth.signOut().then(() => location.reload());
-    }
-
-    auth.onAuthStateChanged(user => {
-        const panel = document.getElementById('admin-panel');
-        if (user) {
-            panel.style.display = 'block';
-            console.log("Logged in as:", user.email);
-        } else {
-            panel.style.display = 'none';
-        }
-    });
-</script>
-
+    </script>
 </body>
 </html>

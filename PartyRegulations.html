@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ระเบียบข้อบังคับพรรค | พรรคเสรีร่วมใจ</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --ptp-red: oklch(55% 0.22 25);
+            --surface: oklch(99% 0.01 25);
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Kanit', sans-serif;
+            background-color: var(--surface);
+            color: oklch(15% 0.01 25);
+        }
+        #side-menu { transform: translateX(-100%); transition: transform 0.4s var(--ease-out-expo); }
+        #side-menu.active { transform: translateX(0); }
+        .dropdown-content { max-height: 0; overflow: hidden; transition: max-height 0.3s var(--ease-out-expo); background-color: rgba(255, 255, 255, 0.03); }
+        .dropdown-item.active .dropdown-content { max-height: 500px; }
+        .chevron { transition: transform 0.3s var(--ease-out-expo); }
+        .dropdown-item.active .chevron { transform: rotate(180deg); }
+
+        /* Style สำหรับข้อบังคับ */
+        .reg-item { border-bottom: 1px solid oklch(90% 0.01 25); }
+        .reg-content { max-height: 0; overflow: hidden; transition: max-height 0.5s var(--ease-out-expo); }
+        .reg-item.open .reg-content { max-height: 1000px; padding-bottom: 2rem; }
+        .reg-item.open .reg-icon { transform: rotate(45deg); color: var(--ptp-red); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-100 h-16 flex items-center px-4">
+        <button id="menu-btn" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <div class="ml-4 text-xl font-bold tracking-tighter text-[oklch(55%_0.22_25)]">PHEU THAI</div>
+    </nav>
+
+    <div id="overlay" class="fixed inset-0 bg-black/50 z-[60] hidden opacity-0 transition-opacity duration-300"></div>
+
+    <aside id="side-menu" class="fixed top-0 left-0 w-[80%] max-w-[320px] h-full bg-[#222] text-white z-[70] shadow-2xl">
+        <div class="p-6 border-b border-white/10 flex justify-between items-center bg-[#1a1a1a]">
+            <span class="font-bold tracking-wider">เมนูหลัก</span>
+            <button id="close-btn" class="text-white/50 hover:text-white">✕</button>
+        </div>
+        <nav class="flex flex-col">
+            <a href="index.html" class="p-5 border-b border-white/5 bg-white/10 text-white font-bold">หน้าแรก</a>
+            <div class="dropdown-item">
+                <button class="dropdown-btn w-full p-5 flex justify-between items-center border-b border-white/5 hover:bg-white/5">
+                    <span>เกี่ยวกับพรรค</span>
+                    <svg class="chevron h-4 w-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="history.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">ประวัติพรรค</a>
+                    <a href="executive.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">คณะกรรมการบริหาร</a>
+                    <a href="PartyRegulations.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">ระเบียบข้อบังคับ</a>
+                </div>
+            </div>
+            <div class="dropdown-item">
+                <button class="dropdown-btn w-full p-5 flex justify-between items-center border-b border-white/5 hover:bg-white/5">
+                    <span>ผลงานและนโยบาย</span>
+                    <svg class="chevron h-4 w-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="policy.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">รายละเอียดนโยบาย</a>
+                    <a href="Pastmilestones.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">ความสำเร็จที่ผ่านมา</a>
+                </div>
+            </div>
+            <a href="news.html" class="p-5 border-b border-white/5 hover:bg-white/5">ข่าวสารล่าสุด</a>
+        </nav>
+    </aside>
+
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <header class="mb-16">
+            <h1 class="text-4xl font-bold mb-4 tracking-tight text-slate-900">ระเบียบข้อบังคับพรรค</h1>
+            <p class="text-gray-500">ข้อมูลกฎระเบียบและแนวทางการดำเนินงานอย่างเป็นทางการของพรรคเพื่อไทย</p>
+        </header>
+
+        <div class="space-y-2">
+            
+            <div class="reg-item">
+                <button class="reg-trigger w-full py-8 flex justify-between items-center text-left group">
+                    <span class="text-xl font-bold group-hover:text-[oklch(55%_0.22_25)] transition-colors">หมวดที่ 1: นามพรรค เครื่องหมายพรรค และที่ตั้งพรรค</span>
+                    <svg class="reg-icon w-6 h-6 text-gray-300 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                </button>
+                <div class="reg-content">
+                    <div class="prose prose-slate max-w-none text-gray-600 space-y-4">
+                        <p><strong>ข้อ 1:</strong> พรรคนี้มีชื่อว่า "พรรคเพื่อไทย" ชื่อย่อว่า "พท." เขียนเป็นภาษาอังกฤษว่า "PHEU THAI PARTY" ตัวย่อภาษาอังกฤษ "PTP"</p>
+                        <p><strong>ข้อ 2:</strong> เครื่องหมายพรรคมีลักษณะเป็นอักษร พ.พาน และ ท.ทหาร สีแดง โดยมีเส้นโค้งล้อมรอบสื่อถึงการรวมพลังเพื่อประชาชน...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reg-item">
+                <button class="reg-trigger w-full py-8 flex justify-between items-center text-left group">
+                    <span class="text-xl font-bold group-hover:text-[oklch(55%_0.22_25)] transition-colors">หมวดที่ 2: อุดมการณ์ทางการเมืองและนโยบายพรรค</span>
+                    <svg class="reg-icon w-6 h-6 text-gray-300 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                </button>
+                <div class="reg-content">
+                    <div class="prose prose-slate max-w-none text-gray-600 space-y-4">
+                        <p><strong>ข้อ 3:</strong> พรรคเพื่อไทยยึดมั่นในระบอบประชาธิปไตยอันมีพระมหากษัตริย์ทรงเป็นประมุข มุ่งสร้างสังคมที่มีความเท่าเทียมและเป็นธรรมทางเศรษฐกิจ...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reg-item">
+                <button class="reg-trigger w-full py-8 flex justify-between items-center text-left group">
+                    <span class="text-xl font-bold group-hover:text-[oklch(55%_0.22_25)] transition-colors">หมวดที่ 3: สมาชิกภาพและการรับสมัครสมาชิก</span>
+                    <svg class="reg-icon w-6 h-6 text-gray-300 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                </button>
+                <div class="reg-content">
+                    <div class="prose prose-slate max-w-none text-gray-600 space-y-4">
+                        <p>ผู้สมัครสมาชิกต้องมีคุณสมบัติตามกฎหมายประกอบรัฐธรรมนูญว่าด้วยพรรคการเมือง และต้องยื่นใบสมัครตามแบบที่พรรคกำหนด...</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-20 p-8 bg-slate-900 rounded-[2.5rem] text-white flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <h4 class="text-xl font-bold mb-2">ดาวน์โหลดเอกสารฉบับเต็ม</h4>
+                <p class="text-slate-400 text-sm">ระเบียบข้อบังคับพรรคเพื่อไทย พ.ศ. 2569 (ฉบับล่าสุด)</p>
+            </div>
+            <a href="#" class="px-8 py-4 bg-white text-slate-900 rounded-full font-bold hover:bg-[oklch(55%_0.22_25)] hover:text-white transition-all whitespace-nowrap">
+                Download PDF
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-20 text-center text-xs text-gray-500">
+        &copy; 2026 พรรคเสรีร่วมใจ
+    </footer>
+
+    <script>
+        // Sidebar & Dropdown Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const sideMenu = document.getElementById('side-menu');
+        const overlay = document.getElementById('overlay');
+        const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+
+        function toggleMenu() {
+            const isActive = sideMenu.classList.toggle('active');
+            overlay.classList.toggle('hidden');
+            setTimeout(() => overlay.classList.toggle('opacity-0', !isActive), 10);
+        }
+
+        menuBtn.onclick = toggleMenu;
+        closeBtn.onclick = toggleMenu;
+        overlay.onclick = toggleMenu;
+
+        dropdownBtns.forEach(btn => {
+            btn.onclick = () => btn.parentElement.classList.toggle('active');
+        });
+
+        // Regulation Accordion Logic
+        const regTriggers = document.querySelectorAll('.reg-trigger');
+        regTriggers.forEach(trigger => {
+            trigger.onclick = () => {
+                const parent = trigger.parentElement;
+                parent.classList.toggle('open');
+            };
+        });
+    </script>
+</body>
+</html>

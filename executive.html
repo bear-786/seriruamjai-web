@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>คณะกรรมการบริหาร | พรรคเสรีร่วมใจ</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --ptp-red: oklch(55% 0.22 25);
+            --surface: oklch(99% 0.01 25);
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Kanit', sans-serif;
+            background-color: var(--surface);
+            color: oklch(15% 0.01 25);
+        }
+        #side-menu { transform: translateX(-100%); transition: transform 0.4s var(--ease-out-expo); }
+        #side-menu.active { transform: translateX(0); }
+        .dropdown-content { max-height: 0; overflow: hidden; transition: max-height 0.3s var(--ease-out-expo); background-color: rgba(255, 255, 255, 0.03); }
+        .dropdown-item.active .dropdown-content { max-height: 500px; }
+        .chevron { transition: transform 0.3s var(--ease-out-expo); }
+        .dropdown-item.active .chevron { transform: rotate(180deg); }
+
+        .exec-card img { transition: transform 0.6s var(--ease-out-expo); }
+        .exec-card:hover img { transform: scale(1.05); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-100 h-16 flex items-center px-4">
+        <button id="menu-btn" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+            <svg xmlns="http://www.w3.org/2000/swap" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <div class="ml-4 text-xl font-bold tracking-tighter text-[oklch(55%_0.22_25)]">SERIRUAMJAI PARTY</div>
+    </nav>
+
+    <div id="overlay" class="fixed inset-0 bg-black/50 z-[60] hidden opacity-0 transition-opacity duration-300"></div>
+
+    <aside id="side-menu" class="fixed top-0 left-0 w-[80%] max-w-[320px] h-full bg-[#222] text-white z-[70] shadow-2xl">
+        <div class="p-6 border-b border-white/10 flex justify-between items-center bg-[#1a1a1a]">
+            <span class="font-bold tracking-wider">เมนูหลัก</span>
+            <button id="close-btn" class="text-white/50 hover:text-white">✕</button>
+        </div>
+        <nav class="flex flex-col">
+            <a href="index.html" class="p-5 border-b border-white/5 bg-white/10 text-white font-bold">หน้าแรก</a>
+            <div class="dropdown-item">
+                <button class="dropdown-btn w-full p-5 flex justify-between items-center border-b border-white/5 hover:bg-white/5">
+                    <span>เกี่ยวกับพรรค</span>
+                    <svg class="chevron h-4 w-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="history.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">ประวัติพรรค</a>
+                    <a href="executive.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">คณะกรรมการบริหาร</a>
+                    <a href="PartyRegulations.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">ระเบียบข้อบังคับ</a>
+                </div>
+            </div>
+            <div class="dropdown-item">
+                <button class="dropdown-btn w-full p-5 flex justify-between items-center border-b border-white/5 hover:bg-white/5">
+                    <span>ผลงานและนโยบาย</span>
+                    <svg class="chevron h-4 w-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="dropdown-content">
+                    <a href="policy.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">รายละเอียดนโยบาย</a>
+                    <a href="Pastmilestones.html" class="block p-4 pl-10 text-sm text-gray-400 hover:text-white">ความสำเร็จที่ผ่านมา</a>
+                </div>
+            </div>
+            <a href="news.html" class="p-5 border-b border-white/5 hover:bg-white/5">ข่าวสารล่าสุด</a>
+        </nav>
+    </aside>
+
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        <header class="text-center mb-20">
+            <h2 class="text-[oklch(55%_0.22_25)] font-bold tracking-[0.3em] uppercase text-sm mb-4">Board of Directors</h2>
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight">คณะกรรมการบริหารพรรค</h1>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <div class="exec-card group">
+                <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-gray-100 mb-6">
+                    <img src="https://tr.rbxcdn.com/30DAY-Avatar-1CC9F96509C847002210DF04C287F6DB-Png/720/720/Avatar/Webp/noFilter"w-full h-full object-cover" alt="หัวหน้าพรรค">
+                </div>
+                <div class="px-4">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-[oklch(55%_0.22_25)] transition-colors">นายศิริศักดิ์ บรรยายรัยน</h3>
+                    <p class="text-gray-500 font-medium">หัวหน้าพรรคเพื่อไทย</p>
+                </div>
+            </div>
+
+            <div class="exec-card group">
+                <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-gray-100 mb-6">
+                    <img src="https://tr.rbxcdn.com/30DAY-Avatar-9E186E7BE11A8C3CD75F6CBCFA8BA41A-Png/720/720/Avatar/Webp/noFilter" class="w-full h-full object-cover" alt="รองหัวหน้าพรรค">
+                </div>
+                <div class="px-4">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-[oklch(55%_0.22_25)] transition-colors">พระบาทสมเด็จพระวชิรศักดาวุธ วิสุทธิยศมหันตบารมี ตรีโลกนาถธรรมิกราช สยามพิพัฒน์จักรินทร์ มหิธรสมมตเทวราช บรมนารถพงศาธิบดี ตรีภูวเนศวรวิสิษฐ์ เอกอัครมหาบุรุษรัตน์ สรรพชัยสิทธิ์วิบูลย์เกษม มหาวีรบดินทร์มหาราช (นายผู้กอง ปลอมตัวมา)</h3>
+                    <p class="text-gray-500 font-medium">รองหัวหน้าพรรค</p>
+                </div>
+            </div>
+            
+                        <div class="exec-card group">
+                <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-gray-100 mb-6">
+                    <img src="https://tr.rbxcdn.com/30DAY-Avatar-F9CFE6F0DC27B51F3FBAC082C3A390E4-Png/720/720/Avatar/Webp/noFilter"w-full h-full object-cover" alt="รองหัวหน้าพรรค">
+                </div>
+                <div class="px-4">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-[oklch(55%_0.22_25)] transition-colors">สมเด็จพระนางเจ้าศิรินภา บรรยายรัตน พระบรมราชินี</h3>
+                    <p class="text-gray-500 font-medium">รองหัวหน้าพรรค</p>
+                </div>
+            </div>
+
+            <div class="exec-card group">
+                <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-gray-100 mb-6">
+                    <img src="https://tr.rbxcdn.com/30DAY-Avatar-45C61BB10A9AB66F31524849ACB0B76F-Png/720/720/Avatar/Webp/noFilter"w-full h-full object-cover" alt="เลขาธิการพรรค">
+                </div>
+                <div class="px-4">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-[oklch(55%_0.22_25)] transition-colors">นายณัฐพงศ์ วิชัยชาญ</h3>
+                    <p class="text-gray-500 font-medium">เลขาธิการพรรค</p>
+                </div>
+            </div>
+
+            <div class="exec-card group">
+                <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-gray-100 mb-6">
+                    <img src="https://www.pngegg.com/th/png-ypmkj" class="w-full h-full object-cover" alt="รองเลขาธิการพรรค">
+                </div>
+                <div class="px-4">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-[oklch(55%_0.22_25)] transition-colors">ไม่มี</h3>
+                    <p class="text-gray-500 font-medium">รองเลขาธิการพรรค</p>
+                </div>
+            </div>
+            
+                        <div class="exec-card group">
+                <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-gray-100 mb-6">
+                    <img src="https://www.pngegg.com/th/png-ypmkj" class="w-full h-full object-cover" alt="รองเลขาธิการพรรค">
+                </div>
+                <div class="px-4">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-[oklch(55%_0.22_25)] transition-colors">ไม่มี</h3>
+                    <p class="text-gray-500 font-medium">รองเลขาธิการพรรค</p>
+                </div>
+            </div>
+            
+                        <div class="exec-card group">
+                <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-gray-100 mb-6">
+                    <img src="https://www.pngegg.com/th/png-ypmkj" class="w-full h-full object-cover" alt="โฆษกพรรค">
+                </div>
+                <div class="px-4">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-[oklch(55%_0.22_25)] transition-colors">ไม่มี</h3>
+                    <p class="text-gray-500 font-medium">โฆษกพรรค</p>
+                </div>
+            </div>
+            
+                        <div class="exec-card group">
+                <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-gray-100 mb-6">
+                    <img src="https://www.pngegg.com/th/png-ypmkj" class="w-full h-full object-cover" alt="โฆษกพรรค">
+                </div>
+                <div class="px-4">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-[oklch(55%_0.22_25)] transition-colors">ไม่มี</h3>
+                    <p class="text-gray-500 font-medium">โฆษกพรรค</p>
+                </div>
+            </div>
+            
+                        <div class="exec-card group">
+                <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-gray-100 mb-6">
+                    <img src="https://www.pngegg.com/th/png-ypmkj" class="w-full h-full object-cover" alt="รองโฆษกพรรค">
+                </div>
+                <div class="px-4">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-[oklch(55%_0.22_25)] transition-colors">ไม่มี</h3>
+                    <p class="text-gray-500 font-medium">รองโฆษกพรรค</p>
+                </div>
+            </div>
+            
+                        <div class="exec-card group">
+                <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-gray-100 mb-6">
+                    <img src="https://www.pngegg.com/th/png-ypmkj" class="w-full h-full object-cover" alt="รองโฆษกพรรค">
+                </div>
+                <div class="px-4">
+                    <h3 class="text-2xl font-bold mb-1 group-hover:text-[oklch(55%_0.22_25)] transition-colors">ไม่มี</h3>
+                    <p class="text-gray-500 font-medium">รองโฆษกพรรค</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-20 text-center text-xs text-gray-500 border-t border-gray-800">
+        &copy; 2026 พรรคเสรีร่วมใจ
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const sideMenu = document.getElementById('side-menu');
+        const overlay = document.getElementById('overlay');
+        const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+
+        function toggleMenu() {
+            const isActive = sideMenu.classList.toggle('active');
+            overlay.classList.toggle('hidden');
+            setTimeout(() => overlay.classList.toggle('opacity-0', !isActive), 10);
+        }
+
+        menuBtn.onclick = toggleMenu;
+        closeBtn.onclick = toggleMenu;
+        overlay.onclick = toggleMenu;
+
+        dropdownBtns.forEach(btn => {
+            btn.onclick = () => btn.parentElement.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
